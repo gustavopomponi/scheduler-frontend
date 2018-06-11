@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+
+.customWidthClass{
+    flex: 0 0 200px;
+ }
+
+ .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 80%;
+  }
+
+  .periodo-width {
+     width: 100%;
+  }

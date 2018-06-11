@@ -1,0 +1,130 @@
+<div class="container-fluid">
+    <div class="row"> 
+        <div class="col-lg-8 col-xl-8"> 
+            <mat-card>
+                <mat-card-header>Parâmetros Gerais</mat-card-header>
+                <br />
+                <mat-card-content>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-2 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width">
+                                    <input matInput placeholder="Frequencia">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width">
+                                    <mat-select placeholder="Período">
+                                    <mat-option *ngFor="let periodo of periodos" [value]="periodo.cod_periodoverificacao">
+                                        {{ periodo.des_periodoverificacao }}
+                                    </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-2 col-lg-3 col-xl-3">
+                                    <mat-form-field class="periodo-width">
+                                        <mat-select placeholder="Gerar Log">
+                                        <mat-option *ngFor="let log of gerarlogs" [value]="log.valor">
+                                            {{ log.descricao }}
+                                        </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-md-2 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width">
+                                    <mat-select placeholder="Hora de Início">
+                                    <mat-option *ngFor="let hora of arr" [value]="hora.valor">
+                                        {{ hora.descricao }}
+                                    </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div> 
+        <div class="col-lg-4 col-xl-4" > 
+            <mat-card>
+                <mat-card-header> Status do Sistema </mat-card-header>
+                <mat-card-content>
+                    <mat-list  >
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px;">
+                        <mat-icon svgIcon='database'></mat-icon>
+                        <h3 matLine> Conexão com Banco de Dados </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px;">
+                        <mat-icon svgIcon='cogs'></mat-icon>
+                        <h3 matLine> Serviço da Engine </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px;">
+                        <mat-icon svgIcon='cogs'></mat-icon>
+                        <h3 matLine> API de Parâmetros </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px;">
+                        <mat-icon svgIcon='cogs'></mat-icon>
+                        <h3 matLine> API de Períodos </h3>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div> 
+    </div> 
+    <br />
+    <div class="row">
+         <div class="col-lg-8 col-xl-8">
+            <mat-card>
+                <mat-card-header>Parâmetros de SMTP</mat-card-header>
+                <br />
+                <mat-card-content>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-4 col-xl-3">
+                                <mat-checkbox class="periodo-width" [(ngModel)]="checked" [labelPosition]="'before'">Requer Autenticação ?</mat-checkbox>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <mat-checkbox class="periodo-width" [(ngModel)]="checked" [labelPosition]="'before'">STARTTLS ?</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-2 col-lg-4 col-xl-4">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput placeholder="Host" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput placeholder="Porta" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput placeholder="Usuário" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput placeholder="Senha" >
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                        <div class="row">
+                            <div class="col-md-2 col-lg-4 col-xl-4">
+                                <mat-form-field class="periodo-width">
+                                    <input matInput placeholder="Remetente" >
+                                </mat-form-field>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div> 

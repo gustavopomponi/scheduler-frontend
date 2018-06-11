@@ -1,0 +1,193 @@
+<div class="container-fluid">
+    <div class="row"> 
+        <div class="col-lg-4 col-xl-4"> 
+            <mat-card>
+                <mat-card-header>
+                   <div class="container-fluid" style="padding: 0;">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-7 col-lg-6 col-xl-6" style="color:#00a393; "> 
+                                    Parâmetros Gerais 
+                            </div>
+                            <div class="col-4 col-lg-6 col-xl-6" style="text-align:right;"> 
+                                <button mat-icon-button (click)="habilitaParametrosGerais()" [hidden]="geraiseditable">
+                                    <mat-icon class="fa fa-pencil" style="color:#00a393;"></mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="atualizaParametrosGerais()" [hidden]="!geraiseditable">
+                                        <mat-icon class="fa fa-check" style="color:#00a393;"></mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="desabilitaParametrosGerais()" [hidden]="!geraiseditable">
+                                        <mat-icon class="fa fa-ban" style="color:#00a393;"></mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                   </div>
+                </mat-card-header>
+                <br />
+                <form [formGroup]="formParametrosGerais" novalidate (ngSubmit)="atualizaParametrosGerais()">
+                <mat-card-content>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width" >
+                                    <input matInput placeholder="Frequencia" formControlName="frequencia">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width">
+                                    <mat-select placeholder="Período" formControlName="periodo">
+                                    <mat-option *ngFor="let periodo of periodos" [value]="periodo.cod_periodoverificacao">
+                                        {{ periodo.des_periodoverificacao }}
+                                    </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                    <mat-form-field class="periodo-width">
+                                        <mat-select placeholder="Gerar Log" formControlName="gerarlog">
+                                        <mat-option *ngFor="let log of gerarlogs" [value]="log.valor">
+                                            {{ log.descricao }}
+                                        </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                            </div>
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width">
+                                    <mat-select placeholder="Hora de Início" formControlName="horainicio">
+                                    <mat-option *ngFor="let hora of arr" [value]="hora.valor">
+                                        {{ hora.descricao }}
+                                    </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width" >
+                                    <input matInput placeholder="Taxa de Juros" formControlName="taxajuros">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <mat-form-field class="periodo-width" >
+                                    <input matInput placeholder="Taxa de Multa" formControlName="taxamulta">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-success" role="alert" [hidden]="!gravadoGerais" id="grvGerais">
+                            Parâmetros Gerais gravados com sucesso !!!
+                    </div>
+                </mat-card-content>
+            </form>
+            </mat-card>
+        </div> 
+        <div class="col-lg-4 col-xl-4">
+            <mat-card>
+                <mat-card-header>
+                        <div class="container-fluid" style="padding: 0">
+                                <div class="row justify-content-between align-items-center" >
+                                    <div class="col-7 col-lg-6 col-xl-6" style="color:#00a393;"> 
+                                            Parâmetros de SMTP 
+                                    </div>
+                                    <div class="col-4 col-lg-6 col-xl-6" style="text-align:right;">
+                                        <button mat-icon-button (click)="habilitaParametrosSmtp()" [hidden]="smtpeditable">
+                                            <mat-icon class="fa fa-pencil" style="color:#00a393;"></mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="atualizaParametrosSmtp()"  [hidden]="!smtpeditable">
+                                            <mat-icon class="fa fa-check" style="color:#00a393;"></mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="desabilitaParametrosSmtp()" [hidden]="!smtpeditable">
+                                            <mat-icon class="fa fa-ban" style="color:#00a393;"></mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                           </div> 
+                </mat-card-header>
+                <br />
+                <br />
+                <mat-card-content>
+                    <form [formGroup]="formParametrosSmtp">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-6 col-xl-6">
+                                    <mat-checkbox class="periodo-width" [labelPosition]="'before'" formControlName="requerauth">Requer Autenticação ?</mat-checkbox>  
+                            </div>
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                    <mat-checkbox class="periodo-width" [labelPosition]="'before'" formControlName="starttls"  >STARTTLS ?</mat-checkbox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                                <div class="col-md-3 col-lg-6 col-xl-6">
+                                        <mat-form-field class="periodo-width">
+                                            <input matInput placeholder="Usuário" formControlName="usuario">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3 col-lg-6 col-xl-6">
+                                        <mat-form-field class="periodo-width">
+                                            <input matInput placeholder="Senha" formControlName="senha" type="password">
+                                        </mat-form-field>
+                                    </div>
+                                <div class="col-md-2 col-lg-8 col-xl-8">
+                                    <mat-form-field class="periodo-width" >
+                                        <input matInput placeholder="Host" formControlName="host" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2 col-lg-4 col-xl-4">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput placeholder="Porta" formControlName="porta" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2 col-lg-8 col-xl-8">
+                                    <mat-form-field class="periodo-width">
+                                        <input matInput  placeholder="Remetente" formControlName="from" >
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="alert alert-success" role="alert" [hidden]="!gravadoSmtp" id="grvSmtp">
+                            Parâmetros de SMTP gravados com sucesso !!!
+                    </div>
+                </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-lg-4 col-xl-4" > 
+            <mat-card>
+                <mat-card-header style="color:#00a393;"> Status do Sistema </mat-card-header>
+                <br />
+                <mat-card-content >
+                    <mat-list  >
+                        <mat-list-item style="font-size:12px; color:#00a393;">
+                        <mat-icon svgIcon='database'></mat-icon>
+                        <h3 matLine> Conexão com Banco de Dados </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px; color:#00a393;">
+                        <mat-icon svgIcon='cogs'></mat-icon>
+                        <h3 matLine> Serviço da Engine </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px; color:#00a393;" [style.color]="apionline === true ? 'green' : 'red'">
+                        <mat-icon svgIcon='cogs'></mat-icon>
+                        <h3 matLine> Application Program Interface (API) </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px; color:#00a393;">
+                        <mat-icon svgIcon='envelope'></mat-icon>
+                        <h3 matLine> Conexão com servidor de SMTP </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px; color:#00a393;">
+                            <a style="width:450px; text-align: right;"> {{ formParametrosGerais.value.ultimaexecucao }} </a>
+                        <h3 matLine> Última Execução </h3>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item style="font-size:12px; color:#00a393;">
+                        <a style="width:450px; text-align: right;"> {{ formParametrosGerais.value.proximaexecucao }} </a>
+                        <h3 matLine> Próxima Execução </h3>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div> 
+    <br />
+</div> 

@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="mat-elevation-z3" style="height:55px; background-color:#00a393;">
+<button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-calendar fa-lg"></i>&nbsp;&nbsp;<span>Scheduler</span></button>
+<mat-menu #menu="matMenu" >
+  <button mat-menu-item color="primary" [routerLink]="['./parametros']"><span>Parâmetros</span></button>
+  <button mat-menu-item>Mensagens</button>
+</mat-menu>
+</mat-toolbar>
+<br />
+<router-outlet></router-outlet>

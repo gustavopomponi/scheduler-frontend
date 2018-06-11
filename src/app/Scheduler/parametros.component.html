@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row"> 
+        <div class="col-lg-8 col-xl-8"> 
+            <mat-card>
+                <mat-card-header>Parâmetros Gerais</mat-card-header>
+                <br />
+                <mat-card-content>
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                        <!--- Note that these columns can be defined in any order.
+                                The actual rendered columns are set as a property on the row definition" -->
+                        
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="Frequencia">
+                            <th mat-header-cell *matHeaderCellDef style="text-align:center;"> Frequência </th>
+                            <td mat-cell *matCellDef="let element" style="width:100px; text-align:center;"> {{ element.frequenciaverificacao }} </td>
+                        </ng-container>
+                        
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="Período" >
+                            <th mat-header-cell *matHeaderCellDef style="text-align:center;"> Período </th>
+                            <td mat-cell *matCellDef="let element" style="width:120px; text-align:center;"> {{ element.periodoverificacao }} </td>
+                        </ng-container>
+                        
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="Início">
+                            <th mat-header-cell *matHeaderCellDef style="text-align:center;"> Início </th>
+                            <td mat-cell *matCellDef="let element" style="width:100px; text-align:center;"> {{element.horainicio}} </td>
+                        </ng-container>
+                        
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="Remetente">
+                            <th mat-header-cell *matHeaderCellDef style="text-align:center;"> Remetente </th>
+                            <td mat-cell *matCellDef="let element" style="width:200px; text-align:center;"> {{element.remetente}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="GerarLog">
+                                <th mat-header-cell *matHeaderCellDef style="text-align:center;"> Gerar Log </th>
+                                <td mat-cell *matCellDef="let element" style="width:100px; text-align:center;"> {{ converteResposta(element.gerarlog) }} </td>
+                        </ng-container>
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div> 
+        <div class="col-lg-4 col-xl-4"> 
+            <mat-card>Status do Sistema</mat-card>
+        </div> 
+    </div> 
+</div> 

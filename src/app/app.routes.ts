@@ -6,7 +6,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SchedulerComponent } from './Scheduler/scheduler.component';
-import { ParametrosComponent } from './Scheduler/Parametros/paramentos.component';
+import { ParametrosComponent } from './Scheduler/Parametros/parametros.component';
 import { MensagemComponent } from './Scheduler/Mensagem/mensagem.component';
 
 // Route Configuration

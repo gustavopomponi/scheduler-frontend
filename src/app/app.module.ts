@@ -9,7 +9,7 @@ import { map, filter, scan } from 'rxjs/operators';
 
 import { AppComponent } from './app.component';
 import { SchedulerComponent } from './Scheduler/scheduler.component';
-import { ParametrosComponent } from './Scheduler/Parametros/paramentos.component';
+import { ParametrosComponent } from './Scheduler/Parametros/parametros.component';
 import { MensagemComponent } from './Scheduler/Mensagem/mensagem.component';
 import { routing } from './app.routes';
 

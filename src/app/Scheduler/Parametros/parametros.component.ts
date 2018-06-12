@@ -201,6 +201,9 @@ desabilitaParametrosSmtp() {
                                                   this.formParametrosGerais.controls['periodo'].setValue(params[0].codperiodoverificacao);
                                                   this.formParametrosGerais.get('gerarlog').setValue(params[0].gerarlog);
                                                   this.formParametrosGerais.get('horainicio').setValue(params[0].horainicio);
+                                                  this.formParametrosGerais.controls['taxajuros'].setValue(params[0].taxajuros);
+                                                  this.formParametrosGerais.controls['taxamulta'].setValue(params[0].taxamulta);
+
                                                   // tslint:disable-next-line:max-line-length
                                                   this.formParametrosGerais.get('proximaexecucao').setValue(moment(params[0].proximaexecucao).format('LLLL'));
                                                   // tslint:disable-next-line:max-line-length

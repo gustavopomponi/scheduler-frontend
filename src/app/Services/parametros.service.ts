@@ -5,10 +5,10 @@ import { Observable, Subscribable } from 'rxjs';
 
 @Injectable()
 export class ParametroService {
-  private serviceUrl = 'http://localhost:3000/api/parametro';
-  private smtpUrl = 'http://localhost:3000/api/parametro/smtp';
-  private periodosUrl = 'http://localhost:3000/api/periodoverificacao';
-  private checkAPIUrl = 'http://localhost:3000/api/online';
+  private serviceUrl = 'http://api.expocaccer.net:4000/api/parametro';
+  private smtpUrl = 'http://api.expocaccer.net:4000/api/parametro/smtp';
+  private periodosUrl = 'http://api.expocaccer.net:4000/api/periodoverificacao';
+  private checkAPIUrl = 'http://api.expocaccer.net:4000/api/online';
 
   headers: HttpHeaders;
   options: HttpParams;

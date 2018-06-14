@@ -58,7 +58,7 @@ export class ParametrosComponent implements OnInit {
             'frequencia': new FormControl({ value: '', disabled: !this.geraiseditable }, [Validators.required, Validators.pattern('^[0-9]+$')]),
             'periodo': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
             'gerarlog': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
-            'horainicio': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
+            'horainicio': new FormControl({ value: '', disabled: !this.geraiseditable }),
             'taxajuros': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
             'taxamulta': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
             'proximaexecucao': new FormControl(),
@@ -123,15 +123,15 @@ export class ParametrosComponent implements OnInit {
 
           console.log(this.formParametrosGerais.value);
           this.parametroService.updateParametrosGerais(this.formParametrosGerais.value)
-                             .subscribe((valor) => { this.carregaParametros();
+                               .subscribe((valor) => { this.carregaParametros();
                                                      this.desabilitaParametrosGerais();
                                                      this.gravadoGerais = true;
                                                      this.geraiseditable = false;
                                                      this.fechaAlerta('#grvGerais');
                                                     });
 
-        }
 
+      }
   }
 
   atualizaParametrosSmtp() {

@@ -61,6 +61,7 @@ export class ParametrosComponent implements OnInit {
             'horainicio': new FormControl({ value: '', disabled: !this.geraiseditable }),
             'taxajuros': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
             'taxamulta': new FormControl({ value: '', disabled: !this.geraiseditable }, Validators.required),
+            'enviaemail': new FormControl({ value: '', disabled: !this.geraiseditable}),
             'proximaexecucao': new FormControl(),
             'ultimaexecucao': new FormControl()
       });
@@ -102,6 +103,7 @@ export class ParametrosComponent implements OnInit {
         this.formParametrosGerais.get('horainicio').enable();
         this.formParametrosGerais.get('taxajuros').enable();
         this.formParametrosGerais.get('taxamulta').enable();
+        this.formParametrosGerais.get('enviaemail').enable();
   }
 
   desabilitaParametrosGerais() {
@@ -113,6 +115,7 @@ export class ParametrosComponent implements OnInit {
         this.formParametrosGerais.get('horainicio').disable();
         this.formParametrosGerais.get('taxajuros').disable();
         this.formParametrosGerais.get('taxamulta').disable();
+        this.formParametrosGerais.get('enviaemail').disable();
   }
 
   atualizaParametrosGerais() {
@@ -203,6 +206,7 @@ desabilitaParametrosSmtp() {
                                                   this.formParametrosGerais.get('horainicio').setValue(params[0].horainicio);
                                                   this.formParametrosGerais.controls['taxajuros'].setValue(params[0].taxajuros);
                                                   this.formParametrosGerais.controls['taxamulta'].setValue(params[0].taxamulta);
+                                                  this.formParametrosGerais.controls['enviaemail'].setValue(params[0].enviaemail);
 
                                                   // tslint:disable-next-line:max-line-length
                                                   this.formParametrosGerais.get('proximaexecucao').setValue(moment(params[0].proximaexecucao).format('LLLL'));

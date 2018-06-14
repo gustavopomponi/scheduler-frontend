@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { ParametroService } from './Services/parametros.service';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +55,7 @@ import * as $ from 'jquery';
     MatSelectModule,
     MatCheckboxModule,
     MatListModule,
+    MatSlideToggleModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

@@ -8,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SchedulerComponent } from './Scheduler/scheduler.component';
 import { ParametrosComponent } from './Scheduler/Parametros/parametros.component';
 import { MensagemComponent } from './Scheduler/Mensagem/mensagem.component';
+import { AuthGuardService } from './Services/auth-guard.service';
 
 // Route Configuration
 export const routes: Routes = [
@@ -22,7 +23,8 @@ export const routes: Routes = [
     children: [
       { path: 'parametros', component: ParametrosComponent },
       { path: 'mensagem', component: MensagemComponent }
-    ]
+    ],
+    canActivate: [AuthGuardService]
   }
 ];
 

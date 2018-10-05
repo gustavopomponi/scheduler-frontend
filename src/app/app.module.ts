@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map, filter, scan } from 'rxjs/operators';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { AuthService } from './Services/auth.service';
 
 
 import { AppComponent } from './app.component';
@@ -59,7 +61,9 @@ import * as $ from 'jquery';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ParametroService],
+  providers: [ParametroService,
+              AuthGuardService,
+              AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
